@@ -1,0 +1,109 @@
+BEGIN
+--------------------------------------------------------------------
+Q1: Is there any compile error with the following code (if any)?
+
+	unsigned int Arr[16];
+	3[Arr] = 7; 
+ 
+Explain:
+
+Syntax error. The name of the variable is Arr, so when you are
+referncing index 3, you have to do Arr[3]
+
+
+--------------------------------------------------------------------
+Q2: What is the difference between the following 3 statements? 
+
+const int * px; 
+int const * px; 
+int * const px; 
+
+Is there any compile error for the following cases?
+case1: 
+int x = 13; 
+const int * px; 
+px = & x; 
+
+case 2: 
+int x = 13; 
+int const * px; 
+px = & x; 
+
+case 3: 
+int x = 13; 
+int * const px; 
+px = & x; 
+
+Explain:
+
+case 1: no compiler error only a pointer to a const
+case 2: no compiler error
+case 3: compiler error, since px is a const and you are assigning it to a different pointer.
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+Q3: Write a function to set or clear ith bit of a 32-bit register. 
+	Where ith (0-based) := {0, 1, 2, …, 31 } 
+void reg_set(volatile unsigned int * pReg, int ith) 
+{ 
+
+*pReg |= 1<<ith;
+
+
+
+} 
+
+void reg_clear(volatile unsigned int * pReg, int ith) 
+{ 
+
+
+
+*pReg &= ~(1<<ith);
+
+
+} 
+
+
+
+--------------------------------------------------------------------
+Q4: Write a swap function in C.
+void swap(unsigned int * px, unsigned int *py) { 
+
+
+int temp;
+temp = *px;
+*px = *py;
+*py = temp;
+
+
+
+
+} 
+
+--------------------------------------------------------------------
+Q5:	What is the output of the following code? (Given: sizeof(unsigned int) is 4) Page 34 
+
+unsigned int Arr[16]; 
+unsigned int a0 = (unsigned int) &Arr[0]; 
+unsigned int a3 = (unsigned int) &Arr[3]; 
+printf(“%d\n”, a3 – a0); 
+
+
+12
+
+
+
+
+
+
+
+END
