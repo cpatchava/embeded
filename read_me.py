@@ -8,8 +8,12 @@ print("connected to: " + ser.portstr)
 
 while True:
     # Read a line and convert it from b'xxx\r\n' to xxx
-    line = ser.readline().decode('utf-8')[:-2]
-
+    userInput = raw_input('')
+    line = "no"
+    if userInput:
+        ser.write(userInput)
+        line = ser.read(10).decode('utf-8')[:-2]
+   # print userInput
     if line:  # If it isn't a blank line
         print(line)
         if line == '520':
